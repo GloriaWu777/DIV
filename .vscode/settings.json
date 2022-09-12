@@ -1,0 +1,8 @@
+{
+    "editor.cursorSurroundingLines": 15,
+    "editor.scrollBeyondLastLine": true,
+    "html.format.wrapLineLength": 50,
+    "javascript.format.placeOpenBraceOnNewLineForFunctions": true,
+    "emmet.triggerExpansionOnTab": true,
+    "editor.wordWrap": "on"
+}

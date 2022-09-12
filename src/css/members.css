@@ -1,0 +1,173 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer components {
+	.members_frame_style {
+		@apply px-12 md:px-24 text-white bg-darkest space-y-28 
+        leading-8
+        pb-48;
+	}
+
+	.members_frame_style h1 {
+		@apply text-lg font-normal;
+	}
+
+	.members_frame_style h2 {
+		@apply text-base font-normal pb-8;
+	}
+
+	.members_frame_style h3 {
+		@apply text-base font-medium leading-10;
+	}
+
+	.members_frame_style p {
+		@apply text-base font-normal text-split leading-6;
+	}
+
+	.each_members_row {
+		@apply grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-x-6 gap-y-14;
+	}
+
+	.each_member {
+		@apply flex flex-col space-y-4 col-span-1;
+	}
+
+	/* 减去的部分包括scrollbar */
+	.avatar {
+		@apply w-[calc((100vw-8.5rem)/2)] h-[calc((100vw-8.5rem)/2)] 
+        md:w-[calc((100vw-16rem)/3)] md:h-[calc((100vw-16rem)/3)] 
+        lg:w-[calc((100vw-17.5rem)/4)] lg:h-[calc((100vw-17.5rem)/4)];
+	}
+
+	/* xinyue part */
+
+	/* banner内容框架和个人介绍详情内容框架不在同一个div里，用不同的边距定义名称 */
+	/* 这是banner里面的头像和名字简介部分 超过sm采用左右布局，否则上下布局 */
+	.banner_frame_style {
+		@apply grid grid-cols-1 grid-rows-1 auto-rows-min sm:grid-cols-2 sm:grid-rows-1  gap-4 sm:gap-20 lg:gap-40 absolute inset-x-12 md:inset-x-24 top-48  ;
+	}
+
+	.banner_pic {
+		@apply col-span-1 ;
+	}
+
+	.banner_pic img {
+		@apply w-[70%] sm:w-full max-w-[480px];
+	}
+	/* 两列布局时 文字上移； 单列布局时 文字为黑 */
+    /* 求banner_frame_style的高=(图片w的9/16）+12rem-300px + 距离黑色背景底边的距离(sm之后为1.5rem lg之后为2.5rem*/
+	.banner_text {
+		@apply col-span-1  text-darkest sm:text-white sm:absolute sm:left-[calc((100%-5rem)/2+5rem)] lg:left-[calc((100%-10rem)/2+10rem)] 
+        sm:bottom-[calc((100vw-12rem)/3+12rem-300px+1.5rem)] md:bottom-[calc((100vw-18rem)/3+12rem-300px+2.5rem)] lg:bottom-[calc((100vw-23rem)/3+12rem-300px+2.5rem)]  xl:bottom-[calc((480px*2/3)+12rem-300px+2.5rem)] 
+        
+	}
+	/* xinyue's frame_version 自定义 ll:1140px*/
+	.description_frame_style {
+		@apply bg-white px-12 md:px-24 pt-[35vw] sm:pt-6 md:pt-[7vw] lg:pt-24
+        ll:pt-48  lg:space-y-0 lg:grid lg:grid-cols-2 sm:gap-x-20 lg:gap-x-40 pb-48;
+	}
+
+	/* 将所有字体样式统一到member_section中 */
+	/* h1: text-lg font-medium
+    h2: text-tiny font-normal
+    h4: text-tiny font-medium（个人简历链接字体/时间跨度）
+
+    h3: text-base font-medium
+    h5: text-tiny font-lighter（项目链接字体）
+    
+    p: text-tiny font-light */
+
+	/* 上中下部分的间隔调整 */
+	.member_section {
+		@apply space-y-24 leading-5;
+	}
+
+    /* 统一字体样式 */
+	.member_section h1 {
+		@apply text-lg font-medium leading-extra-loose;
+	}
+
+	.member_section h2 {
+		@apply text-tiny font-normal;
+	}
+
+	.member_section h3 {
+		@apply text-base font-medium leading-16;
+	}
+
+	.member_section header {
+		@apply font-medium text-base leading-normal;
+	}
+
+	.member_section h4 {
+		@apply text-tiny font-medium;
+	}
+
+	.member_section h5 {
+		@apply text-tiny font-extralight;
+	}
+
+	.member_section p {
+		@apply text-tiny font-light leading-normal;
+	}
+
+    /* 统一链接样式 */
+    .member_section h2 a,
+    .member_section h4 a,
+    .member_section h5 a
+    {
+        @apply underline transition duration-300 ease-out hover:italic;
+    }
+
+	/* 教育背景大框架 */
+	.education_wrap {
+		@apply lg:-translate-y-32;
+	}
+
+	/* 教育背景详情 */
+	.education_content_wrap {
+		@apply grid grid-cols-4 gap-2;
+	}
+
+	/* 分割线 */
+	.split_line {
+		@apply bg-split h-px w-full mt-8;
+	}
+
+	/* 参与项目 */
+	.projects_wrap {
+		@apply pt-4 lg:-translate-y-12 col-span-2;
+	}
+
+	/* 单个项目间隔 */
+	.single_project {
+		@apply space-y-2;
+	}
+	/* GAP20 使得项目文字区域不至于过窄 */
+	.projects_content_wrap {
+		@apply grid grid-cols-2 sm:gap-10 lg:gap-20;
+	}
+	/* gap20无法使得图片与上方内容左对齐 将图片手动右移 */
+	.projects_content_wrap img {
+		@apply lg:translate-x-10 pb-12 lg:pb-0;
+	}
+
+	.projects_content_wrap * {
+		@apply col-span-2 lg:col-span-1;
+	}
+
+
+    /* 老师版本 */
+    .self_info {
+        @apply pt-12 sm:pt-0 sm:top-48 
+    }
+/* 
+    .banner_text {
+        @apply bg-red-400
+    }
+
+    .banner_pic {
+        @apply bg-blue-200
+    } */
+}

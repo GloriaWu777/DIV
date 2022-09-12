@@ -1,0 +1,337 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+	--clr-primary: #191919;
+	--clr-secondary: #1e1e1e;
+}
+* {
+	scroll-behavior: auto;
+}
+
+@layer base {
+}
+
+@layer components {
+	/* ----------------------------------导航栏-------------------------- */
+	.navbar {
+		@apply w-full font-body bg-darkest px-12 md:px-24 pt-28 pb-10
+    text-white sticky -top-[90px] z-40;
+	}
+
+	.navbar.bb {
+		@apply bg-opacity-97 border-gray border-opacity-5 border-b;
+	}
+
+	.navbar_container {
+		@apply relative flex flex-col items-end space-y-8 md:flex-row md:justify-between md:items-start md:space-y-0 lg:items-center;
+	}
+
+	.active {
+		@apply before:content-[''] before:w-[10px] before:h-[4px] before:bg-white before:absolute before:top-[-4px] before:left-[-10px]
+    lg:before:top-[-8px] lg:before:left-[-8px] after:content-[''] after:w-[56px] after:h-[2px] after:bg-white 
+    after:absolute lg:after:bottom-[-28px] lg:after:left-[-8px]
+    after:bottom-[-2px] after:left-[-8px];
+	}
+
+	.active .eng_item {
+		@apply text-white;
+	}
+	/* nav_right在汉堡icon出现时始终是col排列 */
+	#nav_right {
+		@apply flex flex-col items-end space-y-4 lg:space-y-0;
+	}
+
+	.logo_wrap {
+		@apply flex space-x-6;
+	}
+
+	/* 中英文标签 lg:上下布局*/
+	.navbar_item {
+		@apply relative flex flex-row justify-between space-x-8  lg:flex-col lg:items-center lg:space-x-0 transform transition duration-300 ease-in-out hover:scale-105;
+	}
+
+	/* 中英文字体 */
+	.eng_item {
+		@apply lg:absolute text-lg uppercase lg:text-tiny lg:lowercase font-normal text-gray top-[30px] group-hover:text-white;
+	}
+	.chi_item {
+		@apply text-lg font-medium text-white;
+	}
+
+	/* 导航item可见平铺 */
+	.nav_spread_row {
+		@apply flex flex-row space-x-[2.4rem] xl:space-x-[3.4rem] items-center;
+	}
+	.hide_col_ham {
+		@apply hidden;
+	}
+	.show_col_ham {
+		@apply flex flex-col space-y-4;
+	}
+
+	/* 汉堡icon */
+	.hamburger {
+		@apply w-auto h-auto visible flex flex-col space-y-1.5 hover:cursor-pointer lg:hidden;
+	}
+	.hamburger * {
+		@apply w-6 h-[3px] bg-white;
+	}
+
+	.bar1_rotate {
+		@apply transition duration-300 ease-in-out transform translate-y-2 rotate-45;
+	}
+	.bar2_rotate {
+		@apply invisible;
+	}
+	.bar3_rotate {
+		@apply transition duration-300 ease-in-out transform -rotate-45 -translate-y-2.5;
+	}
+
+	/* ---------------------------------首页--------------------------------- */
+
+	/* h1: text-xl font-medium
+p: text-tiny font-light
+
+
+h2: text-xl font-normal
+h3: text-tiny font-medium
+
+h4: text-[12px] font-normal
+h5: text-lg font-normal
+
+h6: text-base font-normal
+
+header: text-base font-medium */
+
+	/* 关于我们的 标题 */
+	.homepage_section {
+		@apply text-white bg-darkest;
+	}
+	.homepage_section h1 {
+		@apply text-xl font-medium;
+	}
+	/* 项目画廊和设计新闻的 大标题中文 、某个项目的标题*/
+	.homepage_section h2 {
+		@apply text-xl font-normal;
+	}
+	/* 项目画廊 设计新闻 大标题英文 */
+	.homepage_section h3 {
+		@apply text-tiny font-medium text-darker;
+	}
+	/* 某个项目的关键词 */
+	.homepage_section h4 {
+		@apply text-[12px] font-normal;
+	}
+	/* 新闻标题 */
+	.homepage_section h5 {
+		@apply text-lg font-normal;
+	}
+	/* 新闻日期 */
+	.homepage_section h6 {
+		@apply text-base font-medium;
+	}
+	.homepage_section p {
+		@apply text-tiny font-light;
+	}
+	/* 加入我们 and 更多 的文本 */
+	.homepage_section header {
+		@apply text-base font-medium;
+	}
+
+	.homepage_banner {
+		@apply w-full h-[460px] md:h-[550px] lg:h-[800px] bg-cover bg-bottom bg-no-repeat;
+	}
+
+	.banner_text_container {
+		@apply pt-[100px] md:pt-[270px] lg:pt-[420px] w-full grid md:grid-cols-2;
+	}
+
+	/* ------------------ ABOUT US 关于我们------------------------ */
+	.about_us_container {
+		@apply bg-darkest space-y-5 px-12 md:px-24 py-8 mr-36 md:mr-0;
+	}
+
+	.right_container {
+		@apply grid  md:grid-cols-2;
+	}
+
+	/* ------------------ JOIN US 加入我们------------------------ */
+	.join_us_icon {
+		@apply transition duration-300 ease-in-out transform group-hover:scale-120 group-hover:cursor-pointer origin-bottom-left;
+	}
+	.join_us_container {
+		@apply bg-darkest  p-8 px-12  md:px-8 flex flex-row gap-[0.85rem] 
+  justify-self-start place-self-end 
+  hover:cursor-pointer;
+	}
+	.join_us_container :first-child {
+		@apply place-self-center;
+	}
+	.join_us_container :last-child {
+		@apply place-self-center justify-self-start;
+	}
+
+	/* ------------ CLICK & ROLLING ICON 前后图标 ------------------ */
+	.click_icon_container {
+		@apply grid;
+	}
+
+	.click_icon_wrap {
+		@apply bg-darkest flex flex-row place-self-start justify-self-end;
+	}
+
+	.prev_wrap {
+		@apply hover:cursor-pointer;
+	}
+	.next_wrap {
+		@apply hover:cursor-pointer;
+	}
+
+	.prev_wrap img {
+		@apply pl-4 py-4 pr-1;
+	}
+	.next_wrap img {
+		@apply pr-4 py-4 pl-1;
+	}
+
+	/* ----------------------------项目画廊----------------------------- */
+
+	.projects_gallery {
+		@apply pl-12 md:pl-24 py-12 pr-40 sm:pr-52 md:pr-44  lg:pr-52 xl:pr-48 relative;
+	}
+
+	/* 项目网格 */
+	.projects_grid {
+		@apply grid grid-cols-1 880:grid-cols-2 xl:grid-cols-3  gap-8 md:gap-y-8 lg:gap-x-4 xl:gap-x-0
+		-translate-x-4;
+	}
+
+	.projects_entry {
+		@apply pb-8;
+	}
+	.grid-text-wrap {
+		@apply py-12 md:py-6 pl-4 w-full absolute top-0 transition duration-300 ease-linear group-hover:invisible;
+	}
+	.hover_appear_text {
+		@apply py-16 md:py-10 pl-4 pr-12 lg:pr-24 space-y-6 invisible group-hover:visible;
+	}
+
+	.bg_hover_effect {
+		@apply bg-cover transition duration-300 ease-in-out transform hover:bg-project1_banner hover:cursor-pointer;
+	}
+	.bg_gradient {
+		@apply bg-gradient_cover bg-contain bg-repeat-y relative;
+	}
+
+	/* 更多项目容器 */
+	.more_projects_container {
+		@apply absolute right-0 pr-12 md:pr-24 top-[89%] 880:top-[81%] xl:top-[72%] space-y-4
+    hover:cursor-pointer;
+	}
+
+	.more_icon_wrap {
+		@apply transition duration-200 ease-in-out transform group-hover:translate-x-12 group-hover:scale-120 group-hover:cursor-pointer;
+	}
+	.more_text_wrap {
+		@apply transition duration-300 ease-in-out transform group-hover:translate-x-2 group-hover:scale-110 group-hover:cursor-pointer;
+	}
+
+	/*----------------------------------- 新闻轮播 -----------------------------*/
+
+	.news_carousel {
+		@apply pb-24 relative;
+	}
+	/* pr-24 md:pr-36 */
+	.news_grid {
+		@apply 
+
+		overflow-hidden
+		mr-36
+		relative
+
+	}
+
+	/*  添加到包裹img的div上 */
+	.glass_cover {
+		@apply filter blur-md h-full bg-darkest/10 transition origin-top -translate-x-2 -translate-y-14 scale-y-130 ;
+	}
+	/* md:-translate-x-12 1440:translate-x-0 */
+	.slide {
+		@apply 
+		translate-x-6
+		750:translate-x-12
+		
+	}
+	.slide img {
+		@apply px-3 mt-20
+		hover:cursor-dragscroll
+	}
+
+	.news_entry {
+		@apply pb-8 px-12 md:px-24 absolute top-0;
+	}
+
+	.news_text_wrap {
+		@apply relative px-3 pt-8 space-y-2
+		transition duration-300 ease-in-out hover:translate-x-4
+		hover:before:duration-300
+		hover:before:h-8
+	}
+
+	.news_text_wrap:before {
+		@apply absolute top-8 -left-1 bg-white w-[2px] h-0 content-['']
+	}
+
+	/* ====== 自定义箭头 ====== */
+	.prev_btn {
+		@apply w-[20px] h-[20px] hover:cursor-pointer absolute top-[calc((100%-8rem)/2)] left-4 md:left-12 z-50 
+		origin-right
+		transition duration-300 ease-in-out hover:scale-110
+	}
+	.next_btn {
+		@apply w-[20px] h-[20px]  hover:cursor-pointer absolute top-[calc((100%-8rem)/2)] right-24 z-50
+		origin-left
+		transition duration-300 ease-in-out hover:scale-110
+	}
+	
+
+	/* ------------------页脚---------------------- */
+	.footer_frame_style {
+		@apply pt-12 pb-24 px-12 md:px-24;
+	}
+
+	/* -----------新闻和项目----------- */
+	/* 面包屑 */
+	.bread_wrap {
+		@apply text-white flex flex-row space-x-3 place-items-center text-base font-normal pt-8 z-30 
+    px-12 md:px-24 pb-24;
+	}
+
+	/*  新闻详情文本边距 */
+	.news_detail_content {
+		@apply px-4 md:px-12 lg:px-24 leading-6;
+	}
+
+	/* 项目页的文字边距 以及课程详情框架 共用*/
+	.projects_frame_style {
+		@apply px-12 md:px-24;
+	}
+
+	.projects_frame_style h2 {
+		@apply text-xl font-medium pt-8;
+	}
+
+	.projects_frame_style p {
+		@apply text-tiny font-normal pt-4 leading-6;
+	}
+
+	.projects_frame_style h1 {
+		@apply text-xl font-medium;
+	}
+
+	.projects_frame_style h3 {
+		@apply text-base font-normal;
+	}
+}

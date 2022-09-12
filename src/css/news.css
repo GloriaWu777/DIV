@@ -1,0 +1,53 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer components {
+	.news_container {
+		@apply mt-[4rem] flex flex-col space-x-0 space-y-8 pl-12 pr-24 pb-48 md:pl-24 md:flex-row md:items-start md:justify-between md:space-x-8 md:space-y-0 lg:space-x-28 text-white font-body;
+	}
+
+	/* 每一栏新闻 */
+	.each_news_row {
+		@apply relative flex flex-col space-y-8 items-start lg:flex-row lg:space-x-16 lg:space-y-0 lg:justify-between pl-0 md:pl-8 pt-0 pb-4 pr-8 transform md:translate-x-8 rounded-sm transition hover:before:duration-500 ease-in-out hover:before:h-[15%] hover:cursor-pointer hover:translate-x-4 md:hover:translate-x-12;
+	}
+
+	.each_news_row::before {
+		@apply content-[''] absolute h-0 w-0.5  bg-white -left-6 md:left-0 top-0;
+	}
+
+	/* 新闻文本大包 */
+	.text {
+		@apply flex flex-col space-y-4 items-start xl:flex-row xl:justify-between xl:space-x-20 xl:space-y-0;
+	}
+	/* 小包，大包包小包，人生可煲 */
+	.news_time {
+		@apply pr-8 font-light text-base flex flex-row items-center space-x-2;
+	}
+	.text_title {
+		@apply pb-8 font-semibold text-xl;
+	}
+	.text_content {
+		@apply font-normal text-tiny text-justify leading-6;
+	}
+	/* 通过图片外框调整自适应大小 */
+	.news_img_wrap {
+		/* @apply min-w-[85%] lg:min-w-[35%] xl:min-w-[25%]; */
+		@apply w-[60vw] md:w-[45vw] lg:w-[90%] xl:w-[60%];
+	}
+	.time_dot {
+		@apply w-[10px] h-[10px] bg-white rounded-full content-[''];
+	}
+
+	.time_index_wrap {
+		@apply text-base font-light list-disc leading-loose pl-[1.2rem] w-[60px];
+	}
+	/* 新闻时间导航栏列表 */
+	.time_index {
+		@apply relative  hover:after:duration-300 ease-out hover:after:w-[55px] hover:cursor-pointer;
+	}
+
+	.time_index::after {
+		@apply absolute content-[''] w-[0] h-[2px] bg-white left-[-15px] bottom-[5px];
+	}
+}

@@ -1,0 +1,53 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer components {
+	/* 每个页面的统一标准边距 */
+	.publication_frame_style {
+		@apply text-darkest font-body space-y-24 pl-12 md:pl-24 pr-28 pt-24 pb-48;
+	}
+
+	.single_publication_row {
+		@apply w-full grid grid-cols-10;
+	}
+
+	.btn {
+		@apply col-span-10 lg:col-span-2 flex justify-start lg:justify-end items-start ml-[calc(12px+3rem)] pt-4 lg:ml-0 lg:pt-0;
+	}
+
+	.note {
+		@apply col-span-10  text-lightblue text-base font-medium leading-loose pl-[calc(12px+3.5rem)];
+	}
+
+	.publication_content {
+		@apply pl-[calc(12px+3.5rem)] col-span-10 lg:col-span-8;
+	}
+
+	.publication_content h1 {
+		@apply text-lg font-medium relative;
+	}
+
+	.publication_content h1:before {
+		@apply absolute content-[''] bg-darkest w-[12px] h-[12px] -left-[calc(12px+3.5rem)];
+	}
+
+	.publication_content h2 {
+		@apply text-tiny font-normal text-authors_cl pt-1.5;
+	}
+	.publication_content p {
+		@apply text-tiny font-normal pt-4;
+	}
+
+	.year_index {
+		@apply text-xl font-semibold;
+	}
+
+	.single_year_col {
+		@apply space-y-10;
+	}
+
+	.pdf_btn {
+		@apply border px-[22px] py-[10px] text-base font-medium transition duration-300 ease-in-out hover:bg-darkest hover:text-white;
+	}
+}
